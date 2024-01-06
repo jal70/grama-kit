@@ -33,3 +33,5 @@ cat head totalED_t.csv > totalED.csv
 rm *_E.csv head totalED_t.csv
 echo "gitkeep" > .gitkeep
 cd ../
+rm -r aeronaveG4/build/*
+echo "gitkeep" > aeronaveG4/build/.gitkeep

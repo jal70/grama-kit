@@ -1,8 +1,8 @@
 /run/initialize
 /control/verbose 2
 /tracking/verbose 2
-/gun/particle e+
-/gun/energy 21.30430734930115 MeV
+/gun/particle proton
+/gun/energy 12967.54167008471 MeV
 /gun/position 0.0 7.0 0.0 m
 /gun/direction 0.0 -1.0 0.0
-/run/beamOn 64
+/run/beamOn 2
