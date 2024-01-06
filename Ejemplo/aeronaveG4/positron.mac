@@ -1,0 +1,16 @@
+############
+# Macro
+#
+# Muestra de datos sinteticos
+# Inicializar kernel
+/run/initialize
+#
+/control/verbose 2
+/tracking/verbose 2
+#
+/gun/particle e+
+/gun/energy 109.34527655863495 MeV
+/gun/position 0 7 0 m
+/gun/direction 0 1 0
+/run/beamOn 3972
+#

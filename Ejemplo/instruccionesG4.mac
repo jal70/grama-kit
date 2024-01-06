@@ -1,0 +1,265 @@
+Centro Volumen Ro
+[20, 20, -7]
+Centro Volumen Rf
+[20, 20, -7]
+Radio Volumen r
+0.8660254037844386
+Submuetreo
+0.001
+Info
+[['Density from function cigar on 2024-01-06 08:39:41', 'ro = [20 20 -7]', 'rf = [20 20 -7]', 'r = 0.8660254037844386', 'Se supone que todas las coordenadas y las distancias están en metros', ['Volumen físico datos (N,L,V):', [64, 64, 32], [0.625, 0.625, 0.4375], [0, 0, -14]]], ['Haz cónico de rayos (M,thetaMin,thetaMax):', 40, 0, 1.0471975511965976]]
+#
+Segundo submuestreo
+0.01
+#
+Class,Data 
+Class 0,/gun/particle e+
+Class 0,/gun/energy 1.4054815793544886 MeV
+Class 0,/gun/position 0.0 7.0 0.0 m
+Class 0,/gun/direction 0.0 -1.0 0.0
+Class 0,/run/beamOn 10
+Class 1,/gun/particle e+
+Class 1,/gun/energy 2.7732289373746655 MeV
+Class 1,/gun/position 0.0 7.0 0.0 m
+Class 1,/gun/direction 0.0 -1.0 0.0
+Class 1,/run/beamOn 13
+Class 2,/gun/particle e+
+Class 2,/gun/energy 5.472002516478699 MeV
+Class 2,/gun/position 0.0 7.0 0.0 m
+Class 2,/gun/direction 0.0 -1.0 0.0
+Class 2,/run/beamOn 26
+Class 3,/gun/particle e+
+Class 3,/gun/energy 10.79709328602896 MeV
+Class 3,/gun/position 0.0 7.0 0.0 m
+Class 3,/gun/direction 0.0 -1.0 0.0
+Class 3,/run/beamOn 39
+Class 4,/gun/particle e+
+Class 4,/gun/energy 21.30430734930115 MeV
+Class 4,/gun/position 0.0 7.0 0.0 m
+Class 4,/gun/direction 0.0 -1.0 0.0
+Class 4,/run/beamOn 64
+Class 5,/gun/particle e+
+Class 5,/gun/energy 42.03663889991418 MeV
+Class 5,/gun/position 0.0 7.0 0.0 m
+Class 5,/gun/direction 0.0 -1.0 0.0
+Class 5,/run/beamOn 47
+Class 6,/gun/particle e+
+Class 6,/gun/energy 82.94468254842101 MeV
+Class 6,/gun/position 0.0 7.0 0.0 m
+Class 6,/gun/direction 0.0 -1.0 0.0
+Class 6,/run/beamOn 42
+Class 7,/gun/particle e+
+Class 7,/gun/energy 163.6624750004071 MeV
+Class 7,/gun/position 0.0 7.0 0.0 m
+Class 7,/gun/direction 0.0 -1.0 0.0
+Class 7,/run/beamOn 20
+Class 8,/gun/particle e+
+Class 8,/gun/energy 322.9309571185861 MeV
+Class 8,/gun/position 0.0 7.0 0.0 m
+Class 8,/gun/direction 0.0 -1.0 0.0
+Class 8,/run/beamOn 11
+Class 9,/gun/particle e+
+Class 9,/gun/energy 637.1918979305837 MeV
+Class 9,/gun/position 0.0 7.0 0.0 m
+Class 9,/gun/direction 0.0 -1.0 0.0
+Class 9,/run/beamOn 5
+Class 10,/gun/particle e-
+Class 10,/gun/energy 0.4035890220616699 MeV
+Class 10,/gun/position 0.0 7.0 0.0 m
+Class 10,/gun/direction 0.0 -1.0 0.0
+Class 10,/run/beamOn 12
+Class 11,/gun/particle e-
+Class 11,/gun/energy 1.0377569478295305 MeV
+Class 11,/gun/position 0.0 7.0 0.0 m
+Class 11,/gun/direction 0.0 -1.0 0.0
+Class 11,/run/beamOn 45
+Class 12,/gun/particle e-
+Class 12,/gun/energy 2.6684062843609824 MeV
+Class 12,/gun/position 0.0 7.0 0.0 m
+Class 12,/gun/direction 0.0 -1.0 0.0
+Class 12,/run/beamOn 71
+Class 13,/gun/particle e-
+Class 13,/gun/energy 6.861329247960697 MeV
+Class 13,/gun/position 0.0 7.0 0.0 m
+Class 13,/gun/direction 0.0 -1.0 0.0
+Class 13,/run/beamOn 98
+Class 14,/gun/particle e-
+Class 14,/gun/energy 17.642680323770445 MeV
+Class 14,/gun/position 0.0 7.0 0.0 m
+Class 14,/gun/direction 0.0 -1.0 0.0
+Class 14,/run/beamOn 108
+Class 15,/gun/particle e-
+Class 15,/gun/energy 45.36499528852517 MeV
+Class 15,/gun/position 0.0 7.0 0.0 m
+Class 15,/gun/direction 0.0 -1.0 0.0
+Class 15,/run/beamOn 78
+Class 16,/gun/particle e-
+Class 16,/gun/energy 116.64796730206213 MeV
+Class 16,/gun/position 0.0 7.0 0.0 m
+Class 16,/gun/direction 0.0 -1.0 0.0
+Class 16,/run/beamOn 46
+Class 17,/gun/particle e-
+Class 17,/gun/energy 299.9393737211458 MeV
+Class 17,/gun/position 0.0 7.0 0.0 m
+Class 17,/gun/direction 0.0 -1.0 0.0
+Class 17,/run/beamOn 18
+Class 18,/gun/particle e-
+Class 18,/gun/energy 771.2404252640816 MeV
+Class 18,/gun/position 0.0 7.0 0.0 m
+Class 18,/gun/direction 0.0 -1.0 0.0
+Class 18,/run/beamOn 5
+Class 19,/gun/particle e-
+Class 19,/gun/energy 1983.106739812423 MeV
+Class 19,/gun/position 0.0 7.0 0.0 m
+Class 19,/gun/direction 0.0 -1.0 0.0
+Class 19,/run/beamOn 3
+Class 20,/gun/particle gamma
+Class 20,/gun/energy 0.08137848855476514 MeV
+Class 20,/gun/position 0.0 7.0 0.0 m
+Class 20,/gun/direction 0.0 -1.0 0.0
+Class 20,/run/beamOn 548
+Class 21,/gun/particle gamma
+Class 21,/gun/energy 0.269472550750956 MeV
+Class 21,/gun/position 0.0 7.0 0.0 m
+Class 21,/gun/direction 0.0 -1.0 0.0
+Class 21,/run/beamOn 1072
+Class 22,/gun/particle gamma
+Class 22,/gun/energy 0.8923175755391264 MeV
+Class 22,/gun/position 0.0 7.0 0.0 m
+Class 22,/gun/direction 0.0 -1.0 0.0
+Class 22,/run/beamOn 1479
+Class 23,/gun/particle gamma
+Class 23,/gun/energy 2.9547746269411066 MeV
+Class 23,/gun/position 0.0 7.0 0.0 m
+Class 23,/gun/direction 0.0 -1.0 0.0
+Class 23,/run/beamOn 1314
+Class 24,/gun/particle gamma
+Class 24,/gun/energy 9.784289064058818 MeV
+Class 24,/gun/position 0.0 7.0 0.0 m
+Class 24,/gun/direction 0.0 -1.0 0.0
+Class 24,/run/beamOn 1325
+Class 25,/gun/particle gamma
+Class 25,/gun/energy 32.39919268840029 MeV
+Class 25,/gun/position 0.0 7.0 0.0 m
+Class 25,/gun/direction 0.0 -1.0 0.0
+Class 25,/run/beamOn 816
+Class 26,/gun/particle gamma
+Class 26,/gun/energy 107.28502397951848 MeV
+Class 26,/gun/position 0.0 7.0 0.0 m
+Class 26,/gun/direction 0.0 -1.0 0.0
+Class 26,/run/beamOn 371
+Class 27,/gun/particle gamma
+Class 27,/gun/energy 355.25812266324607 MeV
+Class 27,/gun/position 0.0 7.0 0.0 m
+Class 27,/gun/direction 0.0 -1.0 0.0
+Class 27,/run/beamOn 107
+Class 28,/gun/particle gamma
+Class 28,/gun/energy 1176.3835159538037 MeV
+Class 28,/gun/position 0.0 7.0 0.0 m
+Class 28,/gun/direction 0.0 -1.0 0.0
+Class 28,/run/beamOn 12
+Class 29,/gun/particle gamma
+Class 29,/gun/energy 3895.4160040969105 MeV
+Class 29,/gun/position 0.0 7.0 0.0 m
+Class 29,/gun/direction 0.0 -1.0 0.0
+Class 29,/run/beamOn 1
+Class 30,/gun/particle neutron
+Class 30,/gun/energy 344.87802047365346 MeV
+Class 30,/gun/position 0.0 7.0 0.0 m
+Class 30,/gun/direction 0.0 -1.0 0.0
+Class 30,/run/beamOn 230
+Class 31,/gun/particle neutron
+Class 31,/gun/energy 516.350715907924 MeV
+Class 31,/gun/position 0.0 7.0 0.0 m
+Class 31,/gun/direction 0.0 -1.0 0.0
+Class 31,/run/beamOn 257
+Class 32,/gun/particle neutron
+Class 32,/gun/energy 773.0793091785134 MeV
+Class 32,/gun/position 0.0 7.0 0.0 m
+Class 32,/gun/direction 0.0 -1.0 0.0
+Class 32,/run/beamOn 96
+Class 33,/gun/particle neutron
+Class 33,/gun/energy 1157.4528704371974 MeV
+Class 33,/gun/position 0.0 7.0 0.0 m
+Class 33,/gun/direction 0.0 -1.0 0.0
+Class 33,/run/beamOn 59
+Class 34,/gun/particle neutron
+Class 34,/gun/energy 1732.9362348436027 MeV
+Class 34,/gun/position 0.0 7.0 0.0 m
+Class 34,/gun/direction 0.0 -1.0 0.0
+Class 34,/run/beamOn 29
+Class 35,/gun/particle neutron
+Class 35,/gun/energy 2594.54883281735 MeV
+Class 35,/gun/position 0.0 7.0 0.0 m
+Class 35,/gun/direction 0.0 -1.0 0.0
+Class 35,/run/beamOn 11
+Class 36,/gun/particle neutron
+Class 36,/gun/energy 3884.5535747490526 MeV
+Class 36,/gun/position 0.0 7.0 0.0 m
+Class 36,/gun/direction 0.0 -1.0 0.0
+Class 36,/run/beamOn 7
+Class 37,/gun/particle neutron
+Class 37,/gun/energy 5815.946219331729 MeV
+Class 37,/gun/position 0.0 7.0 0.0 m
+Class 37,/gun/direction 0.0 -1.0 0.0
+Class 37,/run/beamOn 5
+Class 38,/gun/particle neutron
+Class 38,/gun/energy 8707.62361112351 MeV
+Class 38,/gun/position 0.0 7.0 0.0 m
+Class 38,/gun/direction 0.0 -1.0 0.0
+Class 38,/run/beamOn 5
+Class 39,/gun/particle neutron
+Class 39,/gun/energy 13037.037498896918 MeV
+Class 39,/gun/position 0.0 7.0 0.0 m
+Class 39,/gun/direction 0.0 -1.0 0.0
+Class 39,/run/beamOn 3
+Class 40,/gun/particle proton
+Class 40,/gun/energy 384.7733880454397 MeV
+Class 40,/gun/position 0.0 7.0 0.0 m
+Class 40,/gun/direction 0.0 -1.0 0.0
+Class 40,/run/beamOn 38
+Class 41,/gun/particle proton
+Class 41,/gun/energy 569.4377616362176 MeV
+Class 41,/gun/position 0.0 7.0 0.0 m
+Class 41,/gun/direction 0.0 -1.0 0.0
+Class 41,/run/beamOn 38
+Class 42,/gun/particle proton
+Class 42,/gun/energy 842.7281471424747 MeV
+Class 42,/gun/position 0.0 7.0 0.0 m
+Class 42,/gun/direction 0.0 -1.0 0.0
+Class 42,/run/beamOn 51
+Class 43,/gun/particle proton
+Class 43,/gun/energy 1247.1788452271455 MeV
+Class 43,/gun/position 0.0 7.0 0.0 m
+Class 43,/gun/direction 0.0 -1.0 0.0
+Class 43,/run/beamOn 31
+Class 44,/gun/particle proton
+Class 44,/gun/energy 1845.7376524758968 MeV
+Class 44,/gun/position 0.0 7.0 0.0 m
+Class 44,/gun/direction 0.0 -1.0 0.0
+Class 44,/run/beamOn 31
+Class 45,/gun/particle proton
+Class 45,/gun/energy 2731.562914817384 MeV
+Class 45,/gun/position 0.0 7.0 0.0 m
+Class 45,/gun/direction 0.0 -1.0 0.0
+Class 45,/run/beamOn 16
+Class 46,/gun/particle proton
+Class 46,/gun/energy 4042.522482865739 MeV
+Class 46,/gun/position 0.0 7.0 0.0 m
+Class 46,/gun/direction 0.0 -1.0 0.0
+Class 46,/run/beamOn 8
+Class 47,/gun/particle proton
+Class 47,/gun/energy 5982.651153970403 MeV
+Class 47,/gun/position 0.0 7.0 0.0 m
+Class 47,/gun/direction 0.0 -1.0 0.0
+Class 47,/run/beamOn 7
+Class 48,/gun/particle proton
+Class 48,/gun/energy 8853.906188971976 MeV
+Class 48,/gun/position 0.0 7.0 0.0 m
+Class 48,/gun/direction 0.0 -1.0 0.0
+Class 48,/run/beamOn 2
+Class 49,/gun/particle proton
+Class 49,/gun/energy 13103.16326083823 MeV
+Class 49,/gun/position 0.0 7.0 0.0 m
+Class 49,/gun/direction 0.0 -1.0 0.0
+Class 49,/run/beamOn 7

@@ -1,0 +1,221 @@
+
+///\file "README.txt"
+///\brief README page
+
+/*! \page avion_cilindrico_al
+
+ This code simulates a simplified water phantom and an aircraft measurement
+ in a cosmic radiation application with demonstration of primitive scorers.
+ This example also demonstrates nested parameterised volume which
+ realizes segmented boxes using a combination of replicated volumes
+ and a parameterised volume.
+
+  ---- (Tips)
+
+ This simulation creates 100 x 100 x 100 boxes within the phantom using Nested 
+ Parameterised Volume for realistic situation of cosmic radiation application. 
+ This is very memory consumption if normal Parameterised Volume is used,and needs
+ roughly more than 1 GB memory for execution. However, NestedParameterised volume 
+ effectively works to reduce the memory consumption, and it only needs less than 
+ 100 MB memory for execution.
+
+
+\section avion_cilindrico_al_s1- GEOMETRY DEFINITION
+ 
+  The setup contains a water phantom as target by default. The World Volume
+  is 45 m x 45 m x 45 m box filled with air. 
+  The airplane is defined as a cylindrical section and two spherical crust 
+  sections. The cylindrical section has radius of 7 and 6.996 m and a length
+  of 70 m. The spherical sections represent the front and back of the plane,
+  they are two spherical crusts with radii 7 and 6.996 m and are cut in half.
+  The material of the plane is Aluminium.
+  The interior of the plane is defined as the geometry of the plane but with
+  a cylinder of radius 6.996 m and length  of 70 m. The spherical regions 
+  have a radius of 6.996 m with with Air.
+  The water phantom is box shape and the size of 1 m x 1 m x 1 m. The volume 
+  of water phantom is divided into 100 x 100 x 1 towers using replicated volume,
+  (DetectorConstruction), and then those towers are segmented into 100 boxes 
+  with respect to z axis using nested parameterized volume,(NestedPhantomParameterisation).
+  The volume of water phantom is divided into 100 x 100 x 100 boxes.
+
+  ---- Tips(1)
+  
+  If you want to reduce number of segments of water phantom,
+  please change following numbers which represent number of segments
+  in x, y, z axis, respectively.The following code can be found in
+  avion_cilindrico_al.cc.
+
+\verbatim
+  DetectorConstruction* detector = new DetectorConstruction;
+  detector->SetNumberOfSegmentsInPhantom(100,100,100);
+                                          Nx, Ny, Nz
+\endverbatim
+
+  The geometry and sensitive detector are constructed in 
+  DetectorConstruction class.
+  (See \ref avion_cilindrico_al_s4 "SCORER " for detail descriptions about sensitive detector.)
+
+         
+\section avion_cilindrico_al_s2 PHYSICS LIST
+ 
+  The particle's type and the physic processes which will be available
+  in this application are set in the FTFP_BERT physics list. This physics list 
+  requires data files for electromagnetic and hadronic processes.
+
+  FTFP_BERT is recommended for collider physics applications. It usually produces
+  the best agreement with test beam calorimeter data, including shower shape, energy 
+  response and resolution.
+
+  It is also recommended for cosmic ray applications where good treatment of very 
+  high energy particles is required. Note, however, that is not suited to very high
+  energy collisions of order 10 TeV or more.
+
+  This physics list requires data files for electromagnetic and hadronic processes.
+  See more on installation of the datasets in
+  <a href="http://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/InstallationGuide/html/ch03s03.html">
+  Geant4 Installation Guide, Chapter 3.3: Note On Geant4 Datasets </a>.
+  The following datasets: G4LEDATA, G4LEVELGAMMADATA, G4SAIDXSDATA and
+  G4ENSDFSTATEDATA are mandatory for this example. 
+
+
+\section avion_cilindrico_al_s3 RUNS and EVENTS
+ 
+  \subsection avion_cilindrico_al_s31 Primary particles
+     
+  Synthetic data CORSIKA files are used.
+  CORSIKA (COsmic Ray SImulations for KAscade) is a detailed Monte Carlo program to
+  study the evolution and properties of extensive air showers in the atmosphere.	
+  The CORSIKA program allows to simulate interactions and decays of nuclei, hadrons,
+  muons, electrons, and photons in the atmosphere. It gives type, energy, location, direction 
+  and arrival times of all secondary particles that are created in an air shower and pass a 
+  selected observation level.
+
+  \subsection avion_cilindrico_al_s32 Event
+  
+  An EVENT represents a simulation of one primary particle.
+  A RUN is a set of events.
+  
+  The user has control:
+     - at Begin and End of each run   (class RunAction)
+     - at Begin and End of each event (class EventAction)
+	
+\section avion_cilindrico_al_s4 SCORER
+
+\subsection avion_cilindrico_al_s41 Concrete Scorer
+
+   This application introduces concrete primitive scorer (PS) and filter 
+   classes for easy scoring. Those primitive scorers are registered to
+   MultiFunctionalDetector which is a concrete class of sensitive 
+   detector(SD). Then the MultiFunctionalDetector is attached to 
+   the logical volume of sensitive geometry.
+   A MultiFunctionalDetector, PrimitiveScorers, and SDFilters are
+   created and assigned to the logical volume of water phantom in 
+   DetectorConstruction (see DetectorConstruction::ConstructSDandField()).
+
+   A primitive scorer can score one kind of physical quantity, and
+   creates one hits collection per event. The quantity is collected in
+   G4THitsMap with the copy number of geometry. Here collection name is 
+   given as "MultiFunctionalDetector Name"/"PrimitiveScorer Name".
+   A primitive scorer can have one filter (SDFilter) for selecting hits 
+   to be used for the quantity.
+
+   Since the geometry is constructed using nested parameterisation,
+   the copy number of geometry is defined as follows,
+\verbatim
+  copy number of geometry =  iy*Nx*Ny+ix*Nz+iz,
+\endverbatim
+
+   where Nx,Ny,Nz is total number of segmentation in x, y, and z axis,respectively,
+   and ix,iy,iz is a copy number of the mother volume, the grand mother volume, 
+   and this volume, respectively.
+   This conversion is described in GetIndex() method in PrimitiveScorer.
+
+   \subsection avion_cilindrico_al_s42 The physical quantities scored in this example are:
+
+   - Total energy deposit \n
+      - unit: Energy,                         collName: totalEDep
+   - Energy deposit by protons \n
+      - unit: Energy,                         collName: protonEDep
+   - Energy deposit by neutrons \n
+      - unit: Energy,                         collName: neutronEDep
+   - Energy deposit by electrons \n
+        unit: Energy,  			      collName: electronEDep
+   - Energy deposit by positrons \n 
+        unit: Energy,         		      collName: positronEDep   
+   - Energy deposit by gammas \n
+        unit: Energy,  			      collName: gammaEDep
+   - Energy deposit by pion+ \n
+        unit: Energy,           	      collName: pionpEDep
+   - Energy deposit by pion- \n
+        unit: Energy,  		       	      collName: pionnEDep
+   - Energy deposit by muon+ \n
+        unit: Energy,                         collName: muonpEDep
+   - Energy deposit by muon- \n
+        unit: Energy,                         collName: muonnEDep
+ 
+ 
+\subsection avion_cilindrico_al_s43  Accumulating quantities during a RUN	
+     
+  A PrimitiveScorer creates one hits collection per event.
+  The physical quantity in the hits collection need to be accumulated
+  into another G4THitsMap object during a RUN, in order to obtain
+  integrated flux or dose in a RUN. The accumulation of quantities 
+  are done at Run class.
+ 
+  Run class can automatically generate G4THitsMap objects for a RUN,
+  and accumulate physical quantities of an event into it. The accumulation
+  is done at Run::RecordEvent(G4Event* aEvent).
+  
+  \subsection avion_cilindrico_al_s44  Generate a Run object, and print results
+  
+  The Run object is generated at RunAction::GenerateRun().      
+  The accumulated physical quantities are printed at the end of RUN
+  ( RunAction::EndOfEvent() ). This example prints only selected
+  physical quantities.
+
+
+\section avion_cilindrico_al_s5 VISUALIZATION
+ 
+  The Visualization Manager is set in the main () (see avion_cilindrico_al.cc).
+  The initialization of the drawing is done via a set of /vis/commands
+  in the macro vis.mac. 
+
+  The visualization (with OpenGL driver) assumes two things:
+     -# the visualization & interfaces categories have been compiled
+            with the environment variable G4VIS_BUILD_OPENGLX_DRIVER.
+     -# avion_cilindrico_al.cc has been compiled with G4VIS_USE_OPENGLX.   
+     
+     
+ \section avion_cilindrico_al_s6 HOW TO START ?
+ 
+  - Execute in 'batch' mode from macro files (without visualization)
+	\verbatim      
+	% avion_cilindrico_al   primary.mac
+	\endverbatim      
+ 		
+  - Execute in 'interactive mode' with visualization (it is necessary 
+    to uncomment the lines of code in avion_cilindrico_al.cc)
+	\verbatim      
+	% avion_cilindrico_al
+	....
+	Idle> /control/execute primary.mac
+	....
+	Idle> exit
+	\endverbatim      
+     
+  - Macros are for different primary particles.
+    	vis.mac
+    	gamma.mac
+	electron.mac
+	positron.mac
+	proton.mac
+	neutron.mac
+	muon_p.mac
+	muon_m.mac
+
+*/
+
+
+ 	
+      
+

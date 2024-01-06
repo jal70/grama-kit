@@ -1,0 +1,31 @@
+.ipynb_checkpoints
+#archivos latex
+*.log
+*.synctex.gz
+*.toc
+*.aux
+*.idx
+*.nav
+*.out
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.bak
+*.lof
+*.pdf
+*.lot
+*~
+#libreoffice lock files
+.~lock*
+#Pythings
+__pycache__
+#Tablas
+*.json
+*.csv
+!h_alta.csv
+!h_baja.csv
+!coordenadas.csv
+!particleIDs.csv
+#GEANT4 things
+build
