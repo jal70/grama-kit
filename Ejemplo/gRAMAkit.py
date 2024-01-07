@@ -1526,20 +1526,60 @@ def dosisMediaEqEsfera(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
     # Dosis equivalente en mu Sievert
     filePD=pd.read_csv(inputfile,sep =' ',skiprows=14)
     delta_equ_proton=filePD.filter(regex=("proton.*")).sum().sum()*(1.0)
-    print(delta_equ_proton)
+    #print(delta_equ_proton)
     energy_n=np.array(filePD.filter(regex=("neutron.*")).sum().to_list())
     equivalente=[]
     for i in range(len(filePD.filter(regex=("neutron.*")).columns)):
         Deltaeq=wrneutron(float(filePD.filter(regex=("neutron.*")).columns[i].split("_")[1]))-1
-        print(filePD.filter(regex=("neutron.*")).columns[i].split("_")[1],Deltaeq)
+        #print(filePD.filter(regex=("neutron.*")).columns[i].split("_")[1],Deltaeq)
         equivalente.append(Deltaeq)
     equivalente=np.array(equivalente)
     delta_equ_neutron=np.dot(equivalente,energy_n)
-    print(delta_equ_neutron)
+    #print(delta_equ_neutron)
     Etot=filePD.filter(regex=("._.")).sum().sum()
-    print(Etot)
+    #print(Etot)
     H=(Etot+delta_equ_neutron+delta_equ_proton)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
     if(Neutron):
         H=delta_equ_neutron=np.dot((equivalente+1),energy_n)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
     #H=(Etot+delta_equ_neutron+delta_equ_proton)/(q.Nx*q.Nz*q.Ny*.1*.1*.1)*1.602e-13*1e5*1e6/1.0
     return H
+
+def dosisMediaEqEsferaErr(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
+    # Desviación estandar para dosis equivalente en mu Sievert
+    filePDAbs=pd.read_csv(inputfile,sep =' ',skiprows=14)
+    filePD=filePDAbs[['X','Y','Z']]
+    for i in filePDAbs.filter(regex=("._.")).columns:
+        filePD = pd.concat([filePD, filePDAbs[i]/math.sqrt(float(i.split("_")[2]))], axis=1)
+    delta_equ_proton=filePD.filter(regex=("proton.*")).sum().sum()*(1.0)
+    #print(delta_equ_proton)
+    energy_n=np.array(filePD.filter(regex=("neutron.*")).sum().to_list())
+    equivalente=[]
+    for i in range(len(filePD.filter(regex=("neutron.*")).columns)):
+        Deltaeq=wrneutron(float(filePD.filter(regex=("neutron.*")).columns[i].split("_")[1]))-1
+        #print(filePD.filter(regex=("neutron.*")).columns[i].split("_")[1],Deltaeq)
+        equivalente.append(Deltaeq)
+    equivalente=np.array(equivalente)
+    delta_equ_neutron=np.dot(equivalente,energy_n)
+    #print(delta_equ_neutron)
+    Etot=filePD.filter(regex=("._.")).sum().sum()
+    #print(Etot)
+    H=(Etot+delta_equ_neutron+delta_equ_proton)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+    if(Neutron):
+        H=delta_equ_neutron=np.dot((equivalente+1),energy_n)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+    #H=(Etot+delta_equ_neutron+delta_equ_proton)/(q.Nx*q.Nz*q.Ny*.1*.1*.1)*1.602e-13*1e5*1e6/1.0
+    return H
+
+def lee(file,line_numbers = []):
+    with open(file, 'r') as fp:
+        # lines to read
+        # line_numbers = [7]
+        # To store lines
+        lines = []
+        for i, line in enumerate(fp):
+            # read line 4 and 7
+            if i in line_numbers:
+                lines.append(line.strip())
+            elif i > max(line_numbers):
+                # don't read after max to save time
+                break
+    return lines
