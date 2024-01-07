@@ -1522,7 +1522,7 @@ def wrneutron(E):
     else:
         return 2.5+3.25*math.exp((-(math.log(.04*float(E)))**2)/6)
 
-def dosisMediaEqEsfera(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
+def dosisMediaEqEsfera(inputfile,radio,sample=1.0,MeV=True,Neutron=False,Equivalente=True):
     # Dosis equivalente en mu Sievert
     filePD=pd.read_csv(inputfile,sep =' ',skiprows=14)
     delta_equ_proton=filePD.filter(regex=("proton.*")).sum().sum()*(1.0)
@@ -1537,6 +1537,11 @@ def dosisMediaEqEsfera(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
     delta_equ_neutron=np.dot(equivalente,energy_n)
     #print(delta_equ_neutron)
     Etot=filePD.filter(regex=("._.")).sum().sum()
+    if not Equivalente:
+        H=(Etot)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+        if(Neutron):
+            H=(energy_n.sum())*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+        return H
     #print(Etot)
     H=(Etot+delta_equ_neutron+delta_equ_proton)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
     if(Neutron):
@@ -1544,7 +1549,7 @@ def dosisMediaEqEsfera(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
     #H=(Etot+delta_equ_neutron+delta_equ_proton)/(q.Nx*q.Nz*q.Ny*.1*.1*.1)*1.602e-13*1e5*1e6/1.0
     return H
 
-def dosisMediaEqEsferaErr(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
+def dosisMediaEqEsferaErr(inputfile,radio,sample=1.0,MeV=True,Neutron=False,Equivalente=True):
     # Desviación estandar para dosis equivalente en mu Sievert
     filePDAbs=pd.read_csv(inputfile,sep =' ',skiprows=14)
     filePD=filePDAbs[['X','Y','Z']]
@@ -1562,6 +1567,11 @@ def dosisMediaEqEsferaErr(inputfile,radio,sample=1.0,MeV=True,Neutron=False):
     delta_equ_neutron=np.dot(equivalente,energy_n)
     #print(delta_equ_neutron)
     Etot=filePD.filter(regex=("._.")).sum().sum()
+    if not Equivalente:
+        H=(Etot)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+        if(Neutron):
+            H=(energy_n.sum())*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
+        return H
     #print(Etot)
     H=(Etot+delta_equ_neutron+delta_equ_proton)*1.602e-13*1e6/((4*math.pi*radio**3/3)*sample)
     if(Neutron):
