@@ -1,5 +1,7 @@
 # README
 
+[![DOI](https://zenodo.org/badge/957142192.svg)](https://doi.org/10.5281/zenodo.15106579)
+
 Este repositorio contiene la información necesaria para desplegar un Ejemplo Funcional Repoducible para simular la dosis absorbida por tripulación en un modelo de aeronave simplificada.
 
 El repositorio tiene una estructura de 5 modulos, cada uno permite configurar una parte de la secuencia. Cada modulo se refleja en la estructura de archivos.
