@@ -13,8 +13,12 @@ authors:
     email: jose.lopez@ucv.ve
     affiliation: Universidad Central de Venezuela
     orcid: 'https://orcid.org/0000-0003-3613-3406'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.15106580
 repository-code: 'https://gitlab.com/jalop/grama-kit'
 license: MIT
 commit: 2aaba3e14625eb8051e87580050f9a2c9e38f054
 version: 1.5.0
 date-released: '2025-03-29'
+
